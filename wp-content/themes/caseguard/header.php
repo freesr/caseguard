@@ -21,8 +21,8 @@
                         </a>
                     </div>
                     <div class="buttons">
-    <button class="button1" onclick="scrollToSection('.section2')">Button 1</button>
-    <button class="button2" onclick="scrollToSection('.section2')">Button 2</button>
+    <button class="button1">Button 1</button>
+    <button class="button2">Button 2</button>
 </div>
                 </nav>
             </header>

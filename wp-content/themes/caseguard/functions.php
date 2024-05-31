@@ -9,6 +9,8 @@ function my_theme_enqueue_scripts() {
     wp_enqueue_script( 'my-custom-script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
+add_theme_support('post-thumbnails');
+
 
 
 ?>

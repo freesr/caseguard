@@ -9,6 +9,13 @@ jQuery(document).ready(function() {
         }, 'smooth');
     });
 
+    jQuery('.main-button1, .main-button2, .button1, .button2').click(function() {
+        jQuery('html, body').animate({
+            scrollTop: jQuery('.section2').offset().top
+        }, 500); // 1000 milliseconds = 1 second
+    });
+    
+
     // Smooth scroll to Section 2 when any button within .buttons-container-group or .header-buttons .custom-button is clicked
     jQuery('.buttons-container-group .button, .header-buttons .custom-button').click(function(event) {
         event.preventDefault();
