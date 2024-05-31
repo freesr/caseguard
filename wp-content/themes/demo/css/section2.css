@@ -1,0 +1,299 @@
+/* Section 2 */
+.section2 {
+    width: 100%;
+    max-width: 1432px; 
+    height: 1170px;
+    margin: 0 auto;
+    background: #121212; 
+    opacity: 1; 
+    position: relative;
+    overflow: hidden; 
+}
+
+
+.filtering-section {
+    width: 524px;
+    height: 21px;
+    position: absolute;
+    top: 118px; 
+    left: 454px;
+    text-align: center;
+    font-family: "Segoe UI";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21.28px;
+    color: #00F3FF;
+}
+
+.section-title {
+    width: 524px;
+    height: 56px;
+    position: absolute;
+    top: 154px; 
+    left: 454px;
+    text-align: center;
+    font-family: "Segoe UI";
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 55.86px;
+    color: #FFFFFF;
+}
+
+.section-description {
+    width: 524px;
+    height: 64px;
+    position: absolute;
+    top: 230px; 
+    left: 454px;
+    text-align: center;
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28.8px;
+    color: #FFFFFF; 
+}
+
+
+
+
+
+.dropdown-filter-container1 {
+    width: 308px;
+    height: 289px;
+    top: 314px;
+    left: 559px;
+    position: absolute;
+}
+
+
+.dropdown-filter-container2{
+    width: 308px;
+    height: 261px;
+    top: 28px;
+    position: absolute;  
+    display: flex;  
+    justify-content: center;  
+}
+
+
+.listbox-main{
+    width: 280px;
+    height: 60px;
+    position: relative; 
+    border-radius: 8px 8px 8px 8px;
+    border: 1.4px solid #000000;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.placeholder {
+    font-family: 'Segoe UI', sans-serif;
+    padding: 0px 0px 0px 41px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.28px;
+    text-align: left;
+    color: #666666;
+}
+
+
+.chevron {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left : 240px;
+    border-style: solid;
+    border-width: 1.4px 1.4px 0 0;
+    transform: rotate(135deg);
+    opacity: 0.8;
+}
+
+
+
+
+.checkbox-container {
+    display: none;
+    position: absolute;
+    width: 280px;
+    top: 88px;
+    left: 14px;
+    z-index: 1000;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.checkbox-container div {
+    width: 280px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+}
+
+label {
+    margin-left: 10px;
+}
+
+
+
+
+.carousel-box-navi{
+    position: absolute;
+    width: 1432px;
+    height: 680px;
+    top: 428px;
+    padding: 40px 64px 40px 64px;
+    gap: 70px;
+    opacity: 0px;
+    display: flex; 
+    justify-content: center;
+}
+
+
+.carousel-wrapper {
+    position: relative;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.carousel-container {
+width: 100%;
+height: 474px; 
+position: relative;
+perspective: 1500px;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+
+
+
+
+.carousel-slide {
+    position: absolute;
+    border-radius: 40px; 
+    opacity: 0.8; 
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.carousel-slide img {
+    width: 100%;       
+    height: 100%;     
+    object-fit: cover; 
+    display: block;    
+    border-radius: inherit; 
+}
+
+.carousel-slide a {
+    text-decoration: none; 
+}
+#slide1 {
+    width: 640px;
+    height: 360px;
+    transform: translateX(-300px) scale(0.75); 
+    z-index: 1;
+    opacity: 0.6; 
+}
+
+#slide2 {
+    width: 720px;
+    height: 405px;
+    transform: translateX(-150px) scale(0.85); 
+    z-index: 2;
+    opacity: 0.7;
+}
+
+#slide3 {
+    width: 800px; 
+    height: 474px;
+    transform: translateX(0px) scale(1);
+    z-index: 5;
+    opacity: 1;
+}
+
+#slide4 {
+    width: 720px;
+    height: 405px;
+    transform: translateX(150px) scale(0.85); 
+    z-index: 2;
+    opacity: 0.7;
+}
+
+#slide5 {
+    width: 640px;
+    height: 360px;
+    transform: translateX(300px) scale(0.75); 
+    z-index: 1;
+    opacity: 0.6; 
+}
+
+
+#slide6 {
+    width: 640px;
+    height: 360px;
+    transform: translateX(450px) scale(0.60); 
+    z-index: 1;
+    opacity: 0.5;
+    visibility: hidden;
+}
+#slide-name {
+    color: white;
+    font-family: 'Segoe UI', sans-serif; 
+    font-size: 40px; 
+    font-weight: 700; 
+    line-height: 53.2px;
+    text-align: center; 
+    margin-top: 10px; 
+}
+
+.slider-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 240px;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .nav-left, .nav-right {
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        user-select: none;
+    }
+    .nav-left:hover, .nav-right:hover {
+        color: #ccc;
+    }
+    .dots-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .dot {
+        height: 12px;
+        width: 12px;
+        background-color: #bbb;
+        border-radius: 50%;
+        margin: 0 5px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        cursor: pointer;
+    }
+    .dot.active {
+        transform: scale(1.33); 
+        background-color: #00F3FF;
+    }
+    .dot:hover {
+        background-color: #ddd;
+    }
+

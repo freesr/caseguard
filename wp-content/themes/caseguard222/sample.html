@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Carousel</title>
+<style>
+    body, html { margin: 0; padding: 0; height: 100%; }
+    .carousel {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .slide {
+        border-radius: 40px;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        transition: transform 0.5s ease;
+    }
+    .mask {
+        background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.7) 100%);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+    }
+    .navigation {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        gap: 10px;
+    }
+    .dot {
+        width: 12px;
+        height: 12px;
+        background: gray;
+        border-radius: 50%;
+    }
+    .dot.active {
+        background: blue;
+        width: 16px;
+        height: 16px;
+    }
+    .controls {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .control {
+        background: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="carousel">
+    <div class="slide" style="background-image: url('image1.jpg'); z-index: 3;"></div>
+    <div class="slide" style="background-image: url('image2.jpg'); z-index: 2; transform: scale(0.8);"></div>
+    <div class="slide" style="background-image: url('image3.jpg'); z-index: 1; transform: scale(0.6);"></div>
+    <div class="mask"></div>
+    <div class="controls">
+        <button class="control" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="control" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    <div class="navigation">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function moveSlide(direction) {
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides.forEach((slide, index) => {
+            slide.style.zIndex = "0";
+            slide.style.transform = `scale(${1 - 0.2 * Math.abs(index - currentSlide)})`;
+        });
+        slides[currentSlide].style.zIndex = "3";
+        updateDots();
+    }
+
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    moveSlide(0); // Initialize the view
+</script>
+</body>
+</html>

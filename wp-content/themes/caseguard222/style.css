@@ -1,0 +1,433 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background video styles */
+.background-video {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust as needed */
+    overflow: hidden;
+}
+
+.background-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.background-video::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+                linear-gradient(180deg, rgba(0, 0, 0, 0.85) 6.42%, rgba(0, 0, 0, 0.01) 20.32%),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.85) 23.64%, rgba(0, 0, 0, 0.04) 44.62%);
+    z-index: 0;
+}
+
+/* Content styles */
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header styles */
+header {
+    width: 100%;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Navbar styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* max-width: 1200px;
+
+    width: 100%;
+    background: transparent; */
+}
+
+.logo{
+    
+        margin-left: 79px;
+        margin-top: 15px;
+}
+/* Logo styles */
+.logo img {
+    width: 224px;
+    height: 56px;
+    top: 15px;
+    left: 79px;
+    padding: 12px 36px 4px 0px;
+    gap: 0px;
+    opacity: 0px;
+
+}
+
+/* Button styles */
+.buttons {
+    margin-top: 15px;
+left: 1100px;
+gap: 0px;
+opacity: 0px;
+
+}
+
+.button1{
+    color: white;
+    width: 82.03px;
+   
+    top: 19px;
+    left: 37px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: Segoe UI;
+    background: none;
+    font-size: 16px;
+    font-weight: 600;
+
+    border: none;
+
+    
+}
+.button2 {
+    width: 138.63px;
+    height: 36px;
+    border-color: transparent;
+    gap: 0px;
+    border-radius: 6px;
+    opacity: 0px;
+    font-family: Segoe UI;
+    background: none;
+    font-size: 16px;
+    font-weight: 600;
+    background: #00F3FF;
+
+
+}
+
+.main-box{
+    position: relative;
+    z-index: 1;
+    width: 713px;
+    height: 329px;
+    top: 291px;
+    left: 83px;
+    gap: 0px;
+    opacity: 0px;
+
+
+}
+
+.tag-div {
+    position: absolute;
+    width: fit-content;
+    width: Hug (92px)px;
+    height: Hug (35px)px;
+    /* top: 291px;
+    left: 83px; */
+    padding: 7px 15px 7px 15px;
+    gap: 10px;
+    border-radius: 50px ;
+    opacity: 0px;
+    background: #55555580;
+    color: white;
+
+    
+}
+
+.inner-box{
+    position: absolute;
+    top:33px;
+    left:0px;
+    width: 900px;
+height: 277px;
+gap: 0px;
+opacity: 0px;
+
+}
+
+.heading{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    display: flex;
+    width: 100%;
+
+}
+
+.section-left{
+    width: 50%;
+height: 56px;
+left: 1px;
+gap: 0px;
+opacity: 0px;
+font-family: Segoe UI;
+font-size: 42px;
+font-weight: 700;
+line-height: 55.86px;
+text-align: left;
+color: #FFFFFF;
+
+float: left;
+}
+
+.section-right{
+    float: left;
+    width: 50%;
+    height: 56px;
+    left: 198px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: Segoe UI;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 55.86px;
+    text-align: left;
+    color: #FFFFFF;
+    
+
+ 
+    color: white;
+ 
+}
+
+.main-content{
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    left: 0px;
+    Height: 144px;
+    font-family: Segoe UI;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28.8px;
+    text-align: left;
+    font-family: Segoe UI;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28.8px;
+    text-align: left;
+    
+    color: white;
+
+
+
+}
+
+.buttons-row{
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    left: 0px;
+    display: flex;
+    height: Hug(34)px;
+
+}
+
+.main-button1 {
+    float: left;
+    width: Hug (120px)px;
+height: Hug (34px)px;
+
+
+padding: 6px 16px 6px 20px;
+gap: 8px;
+border-radius: 6px;
+opacity: 0px;
+background: #00F3FF;
+
+}
+
+.main-button2{
+    width: Hug (122px)px;
+height: Hug (34px)px;
+
+
+padding: 6px 16px 6px 15px;
+gap: 8px;
+border-radius: 6px ;
+opacity: 0px;
+color: #00F3FF;
+
+}
+
+.section2{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+}
+
+.section2 img{
+    width: 100%;
+height: 100%;
+
+
+}
+
+.filter-header{
+    position: absolute;
+    top:50px;
+}
+
+.filter-header h1{
+    font-family: Segoe UI;
+font-size: 42px;
+font-weight: 700;
+line-height: 55.86px;
+text-align: center;
+color: #FFFFFF;
+
+}
+
+.filter-header p{
+    Width: 524px;
+    font-family: Segoe UI;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28.8px;
+    text-align: center;
+    color: #FFFFFF;
+    height: 65px;
+
+
+}
+
+.mini-heading {
+   
+    
+height: 21px;
+font-family: Segoe UI;
+font-size: 16px;
+font-weight: 700;
+line-height: 21.28px;
+text-align: center;
+color: #00F3FF;
+
+gap: 0px;
+opacity: 0px;
+
+}
+
+.filter{
+    position: absolute;
+    top: 230px;
+}
+
+
+.filter select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: white;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.carousel {
+    position: absolute;
+    top: 320px;
+}
+
+.carousel-image1{
+    height: 200px;
+}
+
+
+.footer{
+    height: 292px;
+    background-color: black;
+    
+
+}
+
+.left-footer {
+    float: left;
+    max-width: 400px;
+}
+ .left-footer .logo{
+    width: 100%;
+    
+
+ }
+
+ .media-logo{
+    width: 100%;
+    
+
+ }
+
+.right-footer{
+    float: left;
+    height: 129px;
+    margin-left: 50px;
+}
+
+td{
+    color: #00F3FF;
+    font-family: Segoe UI;
+font-size: 16px;
+font-weight: 400;
+line-height: 21.28px;
+text-align: left;
+padding: 10px;
+width: 100px;
+height: 17px;
+top: 42px;
+left: 371px;
+gap: 0px;
+opacity: 0px;
+
+
+
+}
+
+.explore{
+    width: 68px;
+height: 23px;
+font-family: Segoe UI;
+font-size: 18px;
+font-weight: 700;
+line-height: 23px;
+text-align: left;
+color: #FFFFFF;
+
+
+}
+
+span img{
+width: 23px;
+height: 19px;
+float: left;
+padding-left: 5px;
+gap: 0px;
+opacity: 0px;
+
+}
