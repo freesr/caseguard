@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=edge" />
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CasseGuard</title>
+    <meta name="description" content="This is caseguard Assesment">
+    <title>CaseGuard Assesment</title>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
     <div class="background-video">
-        <video autoplay muted loop>
-            <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/section1_background.mp4" type="video/mp4">
-        </video>
+        <video  muted loop autoplay>
+    <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/section1_background.webm" type="video/webm">
+</video>
+
         <div class="content">
             <header>
                 <nav>
                     <div class="logo">
                         <a href="<?php echo esc_url(home_url('/')); ?>">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/CaseGuard_logo.svg" alt="Logo">
+                            <img   loading="lazy" rel="preload"src="<?php echo get_template_directory_uri(); ?>/assets/images/CaseGuard_logo.svg" alt="Logo">
                         </a>
                     </div>
                     <div class="buttons">

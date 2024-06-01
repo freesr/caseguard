@@ -10,7 +10,10 @@ Version: 1.0
 
 */
 /* Universal reset */
-/* Universal reset */
+
+body, html {
+    overflow-x: hidden;
+  }
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +24,7 @@ Version: 1.0
 .background-video {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 800px;
     overflow: hidden;
 }
 
@@ -337,7 +340,7 @@ span img {
 .dropdown-filter-container1, .dropdown-filter-container2 {
     position: absolute;
     top: 160px;
-    left: 345px;
+    left: 435px;
     display: flex;
     justify-content: center;
 }

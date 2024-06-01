@@ -24,7 +24,7 @@
     </div>
     </div>
     <div class="section2">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/section2_bg.png" alt="Section 2 Backgroun">
+        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section2_bg.png" alt="Section 2 Backgroun">
         <div class="filter-header">
             <div class="mini-heading"> Filtering Section</div>
             <h1>Section 2</h1>
@@ -32,9 +32,7 @@
         </div>
         <?php include 'carousel.php' ?>
 
-    
 </div>
-
    
     <?php get_footer(); ?>
 </body>
