@@ -3,6 +3,11 @@
 }
 add_action('wp_enqueue_scripts', 'enqueue_theme_styles'); 
 
+function theme_setup() {
+    add_theme_support('title-tag');
+}
+add_action('after_setup_theme', 'theme_setup');
+
 function my_theme_enqueue_scripts() {
     wp_enqueue_script( 'jquery');
     // wp_enqueue_script( 'my-custom-script', get_template_directory_uri() . '/assets/js/animation.js', array(), '1.0.0', true );

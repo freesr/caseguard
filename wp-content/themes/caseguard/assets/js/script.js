@@ -53,25 +53,41 @@ jQuery(document).ready(function() {
 
     // Carousel functionality
     const slides = jQuery('.carousel-slide');
+    const dotsContainer = jQuery('.dots-container');
     const dots = jQuery('.dot');
     const colorNameElement = jQuery('#slide-name');
     const navLeft = jQuery('.nav-left');
     const navRight = jQuery('.nav-right');
     const slideConfigurations = [
-        { color: 'Black 1', transform: 'translateX(-300px) scale(0.75)', zIndex: 1, opacity: 0.6, width: '640px', height: '360px' },
-        { color: 'Blue 2', transform: 'translateX(-150px) scale(0.85)', zIndex: 2, opacity: 0.7, width: '720px', height: '405px' },
         { color: 'Blue 1', transform: 'translateX(0px) scale(1)', zIndex: 5, opacity: 1, width: '800px', height: '474px' },
-        { color: 'Green 2', transform: 'translateX(150px) scale(0.85)', zIndex: 2, opacity: 0.7, width: '720px', height: '405px' },
-        { color: 'Green 1', transform: 'translateX(300px) scale(0.75)', zIndex: 1, opacity: 0.6, width: '640px', height: '360px' },
+        { color: 'Blue 2', transform: 'translateX(-150px) scale(0.85)', zIndex: 2, opacity: 0.7, width: '720px', height: '405px' },    
+        { color: 'Green 1', transform: 'translateX(150px) scale(0.85)', zIndex: 2, opacity: 0.7, width: '720px', height: '405px' },
+        { color: 'Green 2', transform: 'translateX(300px) scale(0.75)', zIndex: 1, opacity: 0.6, width: '640px', height: '360px' },
+        { color: 'Black 1', transform: 'translateX(-300px) scale(0.75)', zIndex: 1, opacity: 0.6, width: '640px', height: '360px' },
         { color: 'Black 2', transform: 'translateX(450px) scale(0.6)', zIndex: 1, opacity: 0.5, width: '640px', height: '360px' }
     ];
 
-    let currentIndex = 2;
+    let currentIndex = 0;
+    let numSlides =6;
+    let selected_slides = ['6','1','2','3','4','5'];
     let timer = setInterval(autoRotateSlides, 3000);
+    let itr =0;
+    
+
+     // Define the mapping
+     let optionToSlideMapping = {
+        'green': ['2', '3'],
+        'blue': ['4', '5'],
+        'black': ['1', '6']
+    };
 
     function updateSlides() {
+
         slides.each(function(index) {
-            let configIndex = (currentIndex + index - 2 + slides.length) % slides.length;
+            if(selected_slides.includes((slides[index].id.charAt(5)))){
+                let configIndex = ((currentIndex% numSlides) + itr ) % numSlides;
+                console.log("currentIndex :"+currentIndex +" configIndex"+ configIndex + " index:"+itr);
+                itr = itr +1;
             let config = slideConfigurations[configIndex];
             jQuery(this).css({
                 transform: config.transform,
@@ -79,10 +95,11 @@ jQuery(document).ready(function() {
                 opacity: config.opacity,
                 width: config.width,
                 height: config.height,
-                visibility: (configIndex === 5) ? 'hidden' : 'visible'
+                display:'block'
             });
-            if (index === 2) {
-                colorNameElement.text(config.color);
+            if (configIndex === 0) {
+                let slide = jQuery("#slide"+slides[index].id.charAt(5));
+                colorNameElement.text(jQuery(this).find('img')[0].alt);
                 let currentLink = jQuery(this).find('a');
                 currentLink.click(function(event) {
                     event.stopPropagation();
@@ -93,12 +110,20 @@ jQuery(document).ready(function() {
                     event.stopPropagation();
                 });
             }
+            }else{
+                jQuery(this).css({
+                    display:'none'
+                });
+            }
+            
+            
         });
         updateActiveDot(currentIndex);
+        itr=0;
     }
 
     function updateActiveDot(index) {
-        dots.removeClass('active').eq(index).addClass('active');
+        dots.removeClass('active').eq(index%numSlides).addClass('active');
     }
 
     function resetTimer() {
@@ -107,8 +132,8 @@ jQuery(document).ready(function() {
     }
 
     function autoRotateSlides() {
-        currentIndex--;
-        if (currentIndex < 0) currentIndex = slides.length - 1;
+        currentIndex++;
+        // if (currentIndex < 0) currentIndex = slides.length - 1;
         updateSlides();
     }
 
@@ -139,27 +164,48 @@ jQuery(document).ready(function() {
 
     autoRotateSlides();
 
-    // Initialize checkbox filter with an object mapping options to corresponding slide IDs
-    let optionToSlideMapping = {
-        'green': ['slide1', 'slide2'],
-        'blue': ['slide3', 'slide4'],
-        'black': ['slide5', 'slide6']
-    };
+
+  
 
     jQuery(".checkbox-container input[type='checkbox']").change(function() {
         let checkedOptions = jQuery(".checkbox-container input:checked").map(function() {
             return jQuery(this).attr("id");
         }).get();
 
-        jQuery(".carousel-slide").hide();
+       
 
+        // Initialize an empty array to store the slides
+        selected_slides = [];
+
+        // Iterate over checked options and push corresponding slides to the slides array
         checkedOptions.forEach(function(option) {
             if (optionToSlideMapping[option]) {
-                optionToSlideMapping[option].forEach(function(slideId) {
-                    jQuery('#' + slideId).show();
-                });
+                selected_slides = selected_slides.concat(optionToSlideMapping[option]);
             }
         });
+       
+        numSlides = selected_slides.length;
+        updateSlides();
+        updateDots(numSlides);
+        
+
     });
+
+    function updateDots(slideCount) {
+       
+        const currentDotCount = dotsContainer.children('.dot').length;
+
+        if (slideCount > currentDotCount) {
+            // Add dots
+            for (let i = currentDotCount; i < slideCount; i++) {
+                dotsContainer.append('<span class="dot"></span>');
+            }
+        } else if (slideCount < currentDotCount) {
+            // Remove dots
+            for (let i = currentDotCount; i > slideCount; i--) {
+                dotsContainer.children('.dot').last().remove();
+            }
+        }
+    }
 
 });
