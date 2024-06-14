@@ -1,29 +1,13 @@
 // Document ready function to ensure the DOM is fully loaded
 jQuery(document).ready(function() {
 
-    // Smooth scroll to top when a link with class .link-row is clicked
-    jQuery('.link-row').click(function(event) {
-        event.preventDefault();
-        jQuery('html, body').animate({
-            scrollTop: 0
-        }, 'smooth');
-    });
-
     jQuery('.main-button1, .main-button2, .button1, .button2').click(function() {
         jQuery('html, body').animate({
             scrollTop: jQuery('.section2').offset().top
-        }, 500); // 1000 milliseconds = 1 second
+        }, 500); 
     });
     
-
-    // Smooth scroll to Section 2 when any button within .buttons-container-group or .header-buttons .custom-button is clicked
-    jQuery('.buttons-container-group .button, .header-buttons .custom-button').click(function(event) {
-        event.preventDefault();
-        const targetSectionId = jQuery(this).attr('href').substring(1);
-        jQuery('#' + targetSectionId)[0].scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Toggle dropdown for checkbox filter
+ 
     const header = jQuery('.listbox-main');
     const chevron = jQuery('.chevron');
     const checkboxContainer = jQuery('.checkbox-container');
@@ -124,48 +108,6 @@ jQuery(document).ready(function() {
         iterator = 0;
       }
 
-    // function updateSlides() {
-
-    //     slides.each(function(index) {
-    //         if(selected_slides.includes((slides[index].id.charAt(5)))){
-    //             let configIndex = ((currentIndex% numSlides) + itr ) % numSlides;
-    //             console.log("currentIndex :"+currentIndex +" configIndex"+ configIndex + " index:"+itr);
-    //             itr = itr +1;
-    //         let config = slideConfigurations[configIndex];
-    //         jQuery(this).css({
-    //             transform: config.transform,
-    //             zIndex: config.zIndex,
-    //             opacity: config.opacity,
-    //             width: config.width,
-    //             height: config.height,
-    //             display:'block'
-    //         });
-    //         if (configIndex === 0) {
-    //             let slide = jQuery("#slide"+slides[index].id.charAt(5));
-    //             colorNameElement.text(jQuery(this).find('img')[0].alt);
-    //             let currentLink = jQuery(this).find('a');
-    //             currentLink.click(function(event) {
-    //                 event.stopPropagation();
-    //                 window.location.href = jQuery(this).attr('href');
-    //             });
-    //         } else {
-    //             jQuery(this).find('a').click(function(event) {
-    //                 event.stopPropagation();
-    //             });
-    //         }
-    //         }else{
-    //             jQuery(this).css({
-    //                 display:'none'
-    //             });
-    //         }
-            
-            
-    //     });
-    //     updateActiveDot(currentIndex);
-    //     itr=0;
-    // }
-
-   
 
     function updateActiveDot(index) {
         dots.removeClass('active').eq(index%numSlides).addClass('active');

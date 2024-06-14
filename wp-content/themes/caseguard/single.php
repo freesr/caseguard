@@ -13,8 +13,8 @@
                             <?php _e('Categories: ', 'textdomain'); ?>
                             <?php the_category(', '); ?>
                         </span>
-                    </div><!-- .entry-meta -->
-                </div><!-- .entry-header -->
+                    </div>
+                </div>
 
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="post-thumbnail">
@@ -24,15 +24,15 @@
 
                 <div class="entry-content">
                     <?php the_content(); ?>
-                </div><!-- .entry-content -->
+                </div>
 
                 <footer class="entry-footer">
                     <span class="tags-links">
                         <?php _e('Tags: ', 'textdomain'); ?>
                         <?php the_tags('', ', ', ''); ?>
                     </span>
-                </footer><!-- .entry-footer -->
-            </article><!-- #post-## -->
+                </footer>
+            </article>
         <?php 
         endwhile; 
     else: 
@@ -43,33 +43,33 @@
     ?>
 </div>
 
-
 <style>
-
 .background-video {
     height: 1000px;
 }
-.post-content{
+
+.post-content {
     position: relative;
-    width: 713px;
-    height: 329px;
-    margin-top: 120px;
-    margin-left: 83px;
+    width: 90%;
+    max-width: 713px;
+    height: auto;
+    margin: 120px auto;
+    padding: 15px;
     z-index: 1;
 }
-    .single-post .entry-title {
+
+.single-post .entry-title {
     font-size: 2em;
-    color: #333;
     color: #00F3FF;
     background: none;
     border: none;
 }
 
-.category-links{
+.category-links {
     color: white;
 }
 
-.category-links a{
+.category-links a {
     color: #00F3FF;
 }
 
@@ -83,7 +83,6 @@
 .single-post .entry-content {
     font-size: 1.2em;
     line-height: 1.6;
-    color: #444;
     color: #00F3FF;
     background: none;
     border: none;
@@ -105,4 +104,44 @@
     text-decoration: underline;
 }
 
+/* Responsive CSS */
+@media (max-width: 768px) {
+    .post-content {
+        width: 95%;
+        margin-top: 60px;
+        padding: 10px;
+    }
+
+    .single-post .entry-title {
+        font-size: 1.5em;
+    }
+
+    .single-post .entry-content {
+        font-size: 1em;
+    }
+
+    .single-post .tags-links {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-content {
+        width: 100%;
+        margin-top: 30px;
+        padding: 5px;
+    }
+
+    .single-post .entry-title {
+        font-size: 1.2em;
+    }
+
+    .single-post .entry-content {
+        font-size: 0.9em;
+    }
+
+    .single-post .tags-links {
+        font-size: 0.8em;
+    }
+}
 </style>
