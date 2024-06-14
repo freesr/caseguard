@@ -13,6 +13,11 @@ Version: 1.0
 
 body, html {
     overflow-x: hidden;
+    
+  }
+
+  html{
+    background: black;
   }
 * {
     margin: 0;
@@ -20,21 +25,18 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Background video styles */
+
 .background-video {
     position: relative;
     width: 100%;
-    height: 950px;
+    height: 1000px;
     overflow: hidden;
 }
 
 .background-video video {
     position: absolute;
-    /* top: 50%;
-    left: 50%; */
     min-width: 100%;
     min-height: 100%;
-    /* transform: translate(-50%, -50%); */
     z-index: -1;
 }
 
@@ -51,23 +53,19 @@ body, html {
     z-index: 0;
 }
 
-/* Content styles */
-.content {
-    /* position: relative;
-    z-index: 1; */
-}
+
 
 header {
-    /* width: 100%;
-    padding: 1rem; */
     position: relative;
-    /* top: 0; */
-    /* z-index: 1; */
+    width: 100%;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    flex-wrap: wrap; 
 }
 
 .logo {
@@ -75,14 +73,13 @@ nav {
 }
 
 .logo img {
-    width: 224px;
-    height: 56px;
+    max-width: 150px;
+    height: auto;
 }
 
 .buttons {
-    margin-top: 15px;
     display: flex;
-    right: 20px; /* Adjusted from 'left: 1100px' for better responsiveness */
+    gap: 10px; 
 }
 
 .button1, .button2 {
@@ -90,15 +87,13 @@ nav {
     font-family: 'Segoe UI';
     font-size: 16px;
     font-weight: 600;
-    width: 138.63px;
+    width: 140px;
     height: 36px;
     background: none;
     border: none;
 }
 
 .button2 {
-    width: 138.63px;
-    height: 36px;
     border-radius: 6px;
     background: #00F3FF;
     color: black;
@@ -107,21 +102,14 @@ nav {
 
 .main-box {
     position: relative;
-    width: 900px;
-    /* height: 329px; */
+    max-width: 50%;
+    padding: 20px 0 20px 0;
     margin-top: 300px;
     margin-left: 83px;
-    /* z-index: 1; */
 }
 
-@media (max-width: 920px) {
-    .main-box {
-        max-width: 100%;
-    }
-}
 
 .tag-div {
-    /* position: absolute; */
     padding: 7px 15px;
     background: #55555580;
     border-radius: 50px;
@@ -130,9 +118,7 @@ nav {
 
 .inner-box {
     margin-top: 10px;
-    /* position: absolute;
-    width: 900px;
-    height: 277px; */
+
 }
 
 .heading{
@@ -146,8 +132,7 @@ nav {
 
 .heading, .section-left, .section-right {
     display: flex;
-    /* position: relative; */
-    font-family: 'Segoe UI';
+        font-family: 'Segoe UI';
     font-size: 42px;
     font-weight: 700;
     color: white;
@@ -184,7 +169,6 @@ nav {
 
 .main-content {
     width: 100%;
-    height: 144px;
     line-height: 28.8px;
     text-align: left;
     margin-top: 20px;
@@ -195,14 +179,13 @@ nav {
 }
 
 .buttons-row {
-    /* position: absolute; */
-    /* top: 250px; */
-    /* width: 100%; */
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .main-button1, .main-button2 {
-    float: left;
     font-family: Segoe UI;
 font-size: 16px;
 font-weight: 600;
@@ -220,6 +203,43 @@ text-align: left;
     border: none;
     }
 
+    @media (max-width: 768px) {
+        .main-box,.logo{
+            margin-left: 10px;
+            max-width: 100%;
+            margin-top: 40px;
+        }
+    
+        .logo img {
+            max-width: 100px;
+        }
+    
+        .heading {
+            font-size: 20px; /* Further adjusted for smaller screens */
+        }
+        .main-content {
+            font-size: 16px;
+        }
+    
+       
+
+
+        .background-video{
+            height: 700px;
+        }
+ 
+    }
+
+    @media (max-width: 480px) {
+
+        .buttons {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+        }
+    }
+    
+    
 .section2 {
     font-family: Arial, sans-serif;
     display: flex;
@@ -228,19 +248,24 @@ text-align: left;
     position: relative;
     width: 100%;
     height: 1100px;
-    margin: 0;
+    left: 100px;
     padding: 0;
 }
 
+@media (max-width:768px){
+    .section2{
+        left:0px;
+    }
+}
+
 .section2 img {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
 }
 
 .filter-header {
     position: absolute;
     top: 100px;
-    left:660px;
 }
 
 .filter-header h1 {
@@ -253,7 +278,7 @@ text-align: left;
 }
 
 .filter-header p {
-    width: 524px;
+    max-width: 524px;
     font-family: 'Segoe UI';
     font-size: 18px;
     font-weight: 700;
@@ -347,7 +372,7 @@ clear: both;
 }
 
 span img {
-    width: 23px;
+    max-width: 23px;
     height: 19px;
     float: left;
     padding-left: 1px;
@@ -357,7 +382,6 @@ span img {
 .dropdown-filter-container1, .dropdown-filter-container2 {
     position: absolute;
     top: 160px;
-    left: 380px;
     display: flex;
     justify-content: center;
 }
@@ -433,7 +457,7 @@ label {
 .carousel-box-navi{
     position: absolute;
     width: 1432px;
-    height: 680px;
+    height: 780px;
     top: 380px;
     padding: 40px 64px 40px 64px;
     gap: 70px;
@@ -474,7 +498,7 @@ justify-content: center;
 }
 
 .carousel-slide img {
-    width: 100%;       
+    max-width: 100%;       
     height: 100%;     
     object-fit: cover; 
     display: block;    
@@ -608,59 +632,59 @@ justify-content: center;
     
     @keyframes openclose {
         0%, 4% {
-            top: 0.2rem;
+            top: 0rem; /* Adjusted */
             width: 0;
         }
         13%, 17% {
             width: 230px;
         }
         21%, 25% {
-            top: 0.2rem;
+            top: 0rem; /* Adjusted */
             width: 0;
         }
         30%, 34% {
-            top: -4.5rem;
+            top: -4.3rem; /* Adjusted */
             width: 190px;
         }
         38% {
-            top: -4.5rem;
+            top: -4.3rem; /* Adjusted */
             width: 0;
         }
         43% {
-            top: -9rem;
+            top: -8.6rem; /* Adjusted */
             width: 0;
         }
         47%, 51% {
             width: 285px;
         }
         55% {
-            top: -9rem;
+            top: -8.6rem; /* Adjusted */
             width: 0;
         }
         60% {
-            top: -13.5rem;
+            top: -12.9rem; /* Adjusted */
             width: 0;
         }
         64%, 67% {
             width: 215px;
         }
         71% {
-            top: -13.5rem;
+            top: -12.9rem; /* Adjusted */
             width: 0;
         }
         75% {
-            top: -18rem;
+            top: -17.2rem; /* Adjusted */
             width: 0;
         }
         79%, 83% {
             width: 200px;
         }
         87% {
-            top: -18rem;
+            top: -17.2rem; /* Adjusted */
             width: 0;
         }
         92% {
-            top: -22.5rem;
+            top: -21.5rem; /* Adjusted */
             width: 0;
         }
         96%, 100% {
@@ -668,7 +692,15 @@ justify-content: center;
         }
     }
     
-    @media (max-width: 700px){
+    
+    @media screen and  (max-width: 430){
+       
+        .inner-box{
+            width: 100%;
+        }
+         .carousel-box-navi{
+            width: 100%;
+         }
         html { font-size: 9px; }
         .ftr_item+.ftr_item { padding-left: 0rem; }
         .footer_box { flex-direction: column; }
@@ -681,3 +713,186 @@ justify-content: center;
         .carosel_section { padding-bottom: 4rem; }
         .carosel_slider .swiper-slide>a { border-radius: 2rem; }
       }   
+
+
+/* Media queries for smaller screens */
+@media (max-width: 1440px) {
+    .carousel-box-navi {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .carousel-wrapper {
+        width: 100%;
+    }
+
+    .carousel-container {
+        height: 300px;
+    }
+
+    #slide1,
+    #slide2,
+    #slide3,
+    #slide4,
+    #slide5,
+    #slide6 {
+        width: auto;
+        height: 100%;
+    }
+
+    #slide1 {
+        transform: translateX(-200px) scale(0.6);
+    }
+
+    #slide2 {
+        transform: translateX(-100px) scale(0.7);
+    }
+
+    #slide4 {
+        transform: translateX(100px) scale(0.7);
+    }
+
+    #slide5 {
+        transform: translateX(200px) scale(0.6);
+    }
+
+    #slide6 {
+        transform: translateX(300px) scale(0.5);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 200px;
+    }
+
+    #slide1 {
+        transform: translateX(-150px) scale(0.5);
+    }
+
+    #slide2 {
+        transform: translateX(-75px) scale(0.6);
+    }
+
+    #slide4 {
+        transform: translateX(75px) scale(0.6);
+    }
+
+    #slide5 {
+        transform: translateX(150px) scale(0.5);
+    }
+
+    #slide6 {
+        transform: translateX(225px) scale(0.4);
+    }
+}
+
+/*^^^*/
+
+.footer {
+    background-color: black;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-footer {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.left-footer .logo {
+    width: 100%;
+    text-align: center;
+}
+
+.media-logo {
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.right-footer {
+    float: none;
+    height: auto;
+    margin-left: 0;
+    width: 100%;
+}
+
+td {
+    color: #00F3FF;
+    font-family: 'Segoe UI';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.28px;
+    text-align: left;
+    padding: 10px;
+    width: auto;
+    height: auto;
+}
+
+td a {
+    text-decoration: none;
+    color: #00F3FF;
+}
+
+.site-info {
+    font-family: Liberation Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.4px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-right: 0;
+    clear: both;
+    width: 100%;
+}
+
+.explore {
+    width: auto;
+    height: auto;
+    font-family: 'Segoe UI';
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23px;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+span img {
+    max-width: 23px;
+    height: 19px;
+    padding-left: 1px;
+    margin: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-footer,
+    .right-footer {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .right-footer table {
+        width: 100%;
+    }
+
+    td {
+        width: 50%;
+        text-align: center;
+    }
+}

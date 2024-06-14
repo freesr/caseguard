@@ -5,14 +5,18 @@
     <div class="inner-box">
     <div class="heading">
         <div class="section-left"> Section 1</div>
-        <div class="section-right"> <div class="message">
-   <div class="word1">Alpha</div>
-    <div class="word2">Bravo</div>
-    <div class="word3">Charlie</div>
-    <div class="word4">Delta</div>
-    <div class="word5">Echo</div>
-    <div class="word6">Foxtrot</div>
-  </div></div>
+        <div class="section-right"> 
+        <div class="message">
+    <?php
+    $words = ['Alpha', 'Bravo', 'Charlie', 'Delta', 'Echo', 'Foxtrot'];
+    foreach ($words as $index => $word) {
+        $class_name = 'word' . ($index + 1);
+        echo "<div class=\"$class_name\">$word</div>";
+    }
+    ?>
+</div>
+
+</div>
     </div>
     <div class="main-content"> <span style="
     font-family: Segoe UI;

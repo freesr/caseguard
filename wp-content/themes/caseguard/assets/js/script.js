@@ -71,7 +71,8 @@ jQuery(document).ready(function() {
     let numSlides =6;
     let selected_slides = ['6','1','2','3','4','5'];
     let timer = setInterval(autoRotateSlides, 3000);
-    let itr =0;
+    let iterator = 0;
+
     
 
      // Define the mapping
@@ -82,45 +83,89 @@ jQuery(document).ready(function() {
     };
 
     function updateSlides() {
-
         slides.each(function(index) {
-            if(selected_slides.includes((slides[index].id.charAt(5)))){
-                let configIndex = ((currentIndex% numSlides) + itr ) % numSlides;
-                console.log("currentIndex :"+currentIndex +" configIndex"+ configIndex + " index:"+itr);
-                itr = itr +1;
-            let config = slideConfigurations[configIndex];
-            jQuery(this).css({
-                transform: config.transform,
-                zIndex: config.zIndex,
-                opacity: config.opacity,
-                width: config.width,
-                height: config.height,
-                display:'block'
+          const isSlideSelected = selected_slides.includes(slides[index].id.charAt(5));
+          if (isSlideSelected) {
+            const configIndex = ((currentIndex % numSlides) + iterator) % numSlides;
+            console.log(`currentIndex: ${currentIndex} configIndex: ${configIndex} index: ${iterator}`);
+            iterator++;
+            const config = slideConfigurations[configIndex];
+            const $slide = jQuery(this);
+            $slide.css({
+              transform: config.transform,
+              zIndex: config.zIndex,
+              opacity: config.opacity,
+              width: config.width,
+              height: config.height,
+              display: 'block'
             });
+      
             if (configIndex === 0) {
-                let slide = jQuery("#slide"+slides[index].id.charAt(5));
-                colorNameElement.text(jQuery(this).find('img')[0].alt);
-                let currentLink = jQuery(this).find('a');
-                currentLink.click(function(event) {
-                    event.stopPropagation();
-                    window.location.href = jQuery(this).attr('href');
-                });
+              const $currentSlide = jQuery(`#slide${slides[index].id.charAt(5)}`);
+              const $img = $currentSlide.find('img');
+              colorNameElement.text($img[0].alt);
+              const $currentLink = $currentSlide.find('a');
+              $currentLink.click(function(event) {
+                event.stopPropagation();
+                window.location.href = jQuery(this).attr('href');
+              });
             } else {
-                jQuery(this).find('a').click(function(event) {
-                    event.stopPropagation();
-                });
+              $slide.find('a').click(function(event) {
+                event.stopPropagation();
+              });
             }
-            }else{
-                jQuery(this).css({
-                    display:'none'
-                });
-            }
-            
-            
+          } else {
+            jQuery(this).css({
+              display: 'none'
+            });
+          }
         });
         updateActiveDot(currentIndex);
-        itr=0;
-    }
+        iterator = 0;
+      }
+
+    // function updateSlides() {
+
+    //     slides.each(function(index) {
+    //         if(selected_slides.includes((slides[index].id.charAt(5)))){
+    //             let configIndex = ((currentIndex% numSlides) + itr ) % numSlides;
+    //             console.log("currentIndex :"+currentIndex +" configIndex"+ configIndex + " index:"+itr);
+    //             itr = itr +1;
+    //         let config = slideConfigurations[configIndex];
+    //         jQuery(this).css({
+    //             transform: config.transform,
+    //             zIndex: config.zIndex,
+    //             opacity: config.opacity,
+    //             width: config.width,
+    //             height: config.height,
+    //             display:'block'
+    //         });
+    //         if (configIndex === 0) {
+    //             let slide = jQuery("#slide"+slides[index].id.charAt(5));
+    //             colorNameElement.text(jQuery(this).find('img')[0].alt);
+    //             let currentLink = jQuery(this).find('a');
+    //             currentLink.click(function(event) {
+    //                 event.stopPropagation();
+    //                 window.location.href = jQuery(this).attr('href');
+    //             });
+    //         } else {
+    //             jQuery(this).find('a').click(function(event) {
+    //                 event.stopPropagation();
+    //             });
+    //         }
+    //         }else{
+    //             jQuery(this).css({
+    //                 display:'none'
+    //             });
+    //         }
+            
+            
+    //     });
+    //     updateActiveDot(currentIndex);
+    //     itr=0;
+    // }
+
+   
 
     function updateActiveDot(index) {
         dots.removeClass('active').eq(index%numSlides).addClass('active');
@@ -133,7 +178,6 @@ jQuery(document).ready(function() {
 
     function autoRotateSlides() {
         currentIndex++;
-        // if (currentIndex < 0) currentIndex = slides.length - 1;
         updateSlides();
     }
 
@@ -172,12 +216,8 @@ jQuery(document).ready(function() {
             return jQuery(this).attr("id");
         }).get();
 
-       
 
-        // Initialize an empty array to store the slides
         selected_slides = [];
-
-        // Iterate over checked options and push corresponding slides to the slides array
         checkedOptions.forEach(function(option) {
             if (optionToSlideMapping[option]) {
                 selected_slides = selected_slides.concat(optionToSlideMapping[option]);
