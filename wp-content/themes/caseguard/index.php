@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 </div>
 <div class="main-box">
-    <span class="tag-div"> Tag title</span>
+    <span class="tag-div"> Tag Title</span>
     <div class="inner-box">
     <div class="heading">
         <div class="section-left"> Section 1</div>
